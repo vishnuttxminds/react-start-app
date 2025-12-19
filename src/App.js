@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <HomeScreen />
-      <ShowHideScreen userInfo={{ name: "Vishnu", place: "TVM" }} />
+      <ShowHideScreen userInfo={{ username: "Vishnu", place: "TVM" }} />
 
       <ProductCardScreen title="Nike Bag" image={bag1}>
         <p> Price: 7245</p>

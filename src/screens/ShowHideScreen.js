@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import catImage from "../assets/cat.jpg";
 
-function ShowHideScreen(props) {
+function ShowHideScreen({ userInfo: { username, place } }) {
   const [name, setName] = useState("");
   const [hideshow, setHideShow] = useState(false);
   const [skills, setSkills] = useState([]);
@@ -52,7 +52,7 @@ function ShowHideScreen(props) {
       </div>
 
       {/* probs details */}
-      <p>{props.userInfo.name} - {props.userInfo.place}</p>
+      <p>{username} - {place}</p>
 
 
     </div>
