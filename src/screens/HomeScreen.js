@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
   const [count, setCount] = useState(0);
 
   var counter = 0;
