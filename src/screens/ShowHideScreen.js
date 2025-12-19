@@ -11,7 +11,7 @@ function ShowHideScreen(props) {
 
   console.log("Props Name:", props.userInfo.name);
   console.log("Props place:", props.userInfo.place);
-  
+
   return (
     <div style={{ padding: "20px" }}>
       {/* text box on entering your name */}
@@ -53,6 +53,11 @@ function ShowHideScreen(props) {
           ))}
         </ul>
       </div>
+
+
+      {/* probs details */}
+
+      <p>{props.userInfo.name} - {props.userInfo.place}</p>
     </div>
   );
 }
