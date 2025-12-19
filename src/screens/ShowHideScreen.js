@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 
+import catImage from "../assets/cat.jpg";
+
 function ShowHideScreen() {
   const [name, setName] = useState("");
   const [hideshow, setHideShow] = useState(false);
@@ -11,15 +13,14 @@ function ShowHideScreen() {
         type="text"
         placeholder="Enter your name"
         value={name}
-        onChange={(data) => setName(data.target.value)}
+        onChange={(event) => setName(event.target.value)}
       />
 
       <p>{name && `Welcome ${name}`}</p>
 
       {/* hide/show image */}
 
-     
-
+      {hideshow && <img src={catImage} alt="Profile" width="200" />}
     </div>
   );
 }
