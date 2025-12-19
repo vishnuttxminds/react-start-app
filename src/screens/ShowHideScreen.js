@@ -3,12 +3,15 @@ import { useState } from "react";
 
 import catImage from "../assets/cat.jpg";
 
-function ShowHideScreen() {
+function ShowHideScreen(props) {
   const [name, setName] = useState("");
   const [hideshow, setHideShow] = useState(false);
   const [skills, setSkills] = useState([]);
   const [skillsEntered, setSkillsEntered] = useState("");
-  console.log("Skills:", skills);
+
+  console.log("Props Name:", props.userInfo.name);
+  console.log("Props place:", props.userInfo.place);
+  
   return (
     <div style={{ padding: "20px" }}>
       {/* text box on entering your name */}
