@@ -27,7 +27,7 @@ function ShowHideScreen() {
       {hideshow && <img src={catImage} alt="Profile" width="200" />}
 
       {/* skill list using string array */}
-      <p>2nd Question</p>
+      <p>3nd Question</p>
       <div>
         <input
           type="text"
