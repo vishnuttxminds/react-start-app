@@ -5,11 +5,12 @@ import ShowHideScreen from "./screens/ShowHideScreen";
 import ProductCardScreen from "./screens/ProductCardScreen";
 import bag1 from "./assets/bag1.jpg";
 import bag2 from "./assets/bag2.jpg";
+import ProductList from "./screens/ProductList";
 
 function App() {
   return (
     <div className="App">
-      <HomeScreen />
+      {/* <HomeScreen />
       <ShowHideScreen userInfo={{ username: "Vishnu", place: "TVM" }} />
 
       <ProductCardScreen title="Nike Bag" image={bag1}>
@@ -22,7 +23,9 @@ function App() {
         <p>Price: 17989</p>
         <p>Rating: 4.2</p>
         <p style={{ color: "red" }}>Out of Stock</p>
-      </ProductCardScreen>
+      </ProductCardScreen> */}
+
+      <ProductList />
     </div>
   );
 }
