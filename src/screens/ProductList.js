@@ -5,12 +5,10 @@ function ProductList() {
   const [products, setProducts] = useState([]);
 
   const API_URL = process.env.REACT_APP_API_URL;
-  const API_BASE_URL = 'https://fakestoreapi.com/products';
 
   useEffect(() => {
-    console.log("API URL:", `${API_URL}`);
     axios
-      .get(API_BASE_URL)
+      .get(`${API_URL}`)
       .then((response) => {
         setProducts(response.data);
       })
