@@ -10,8 +10,16 @@ import TitleCounter from "./screens/TitleCounter";
 import CurrentTime from "./screens/CurrentTime";
 import CounterUseRef from "./screens/CounterUseRef";
 import ChangeBgColor from "./screens/ChangeBgColor";
+import Department from "./screens/Department";
 
 function App() {
+
+  const loggedInEmployee = {
+    id: 101,
+    name: "Vishnu",
+    role: " Developer",
+    department: "IT",
+  };
   return (
     <div className="App">
       {/* <HomeScreen />
@@ -35,6 +43,8 @@ function App() {
 
       {/* <CounterUseRef/> */}
       <ChangeBgColor/>
+
+      <Department employee={loggedInEmployee} />
     </div>
   );
 }
