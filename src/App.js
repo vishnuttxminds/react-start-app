@@ -6,6 +6,7 @@ import ProductCardScreen from "./screens/ProductCardScreen";
 import bag1 from "./assets/bag1.jpg";
 import bag2 from "./assets/bag2.jpg";
 import ProductList from "./screens/ProductList";
+import TitleCounter from "./screens/TitleCounter";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
         <p style={{ color: "red" }}>Out of Stock</p>
       </ProductCardScreen> */}
 
-      <ProductList />
+      {/* <ProductList /> */}
+      <TitleCounter/>
     </div>
   );
 }
