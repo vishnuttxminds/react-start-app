@@ -7,6 +7,7 @@ function CounterUseRef() {
   const increment = () => {
     countRef.current = countRef.current + 1;
     console.log("Count:", countRef.current);
+    // Update state to trigger re-render
     setCount(countRef.current);
   };
 

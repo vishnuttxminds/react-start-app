@@ -9,6 +9,7 @@ import ProductList from "./screens/ProductList";
 import TitleCounter from "./screens/TitleCounter";
 import CurrentTime from "./screens/CurrentTime";
 import CounterUseRef from "./screens/CounterUseRef";
+import ChangeBgColor from "./screens/ChangeBgColor";
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
       {/* <TitleCounter/>
       <CurrentTime/> */}
 
-      <CounterUseRef/>
+      {/* <CounterUseRef/> */}
+      <ChangeBgColor/>
     </div>
   );
 }
