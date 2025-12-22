@@ -8,6 +8,7 @@ import bag2 from "./assets/bag2.jpg";
 import ProductList from "./screens/ProductList";
 import TitleCounter from "./screens/TitleCounter";
 import CurrentTime from "./screens/CurrentTime";
+import CounterUseRef from "./screens/CounterUseRef";
 
 function App() {
   return (
@@ -28,8 +29,10 @@ function App() {
       </ProductCardScreen> */}
 
       {/* <ProductList /> */}
-      <TitleCounter/>
-      <CurrentTime/>
+      {/* <TitleCounter/>
+      <CurrentTime/> */}
+
+      <CounterUseRef/>
     </div>
   );
 }
