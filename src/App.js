@@ -11,12 +11,14 @@ import CurrentTime from "./screens/CurrentTime";
 import CounterUseRef from "./screens/CounterUseRef";
 import ChangeBgColor from "./screens/ChangeBgColor";
 import Department from "./screens/Department";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Counter from "./screens/Counter";
 import CounterContext from "./context/CounterContext";
 import UserContext from "./context/UserContext";
 import UserProfile from "./screens/UserProfile";
 import Chat from "./screens/Chat";
+import Button from "./screens/Button";
+import Counter2 from "./screens/Counter2";
 
 function App() {
   const loggedInEmployee = {
@@ -27,10 +29,24 @@ function App() {
   };
 
   const [count, setCount] = useState(0);
+  const [count1, setCount1] = useState(2);
 
   // const increment = () => {
   //   setCount(count + 1);
   // };
+
+  //  const increment1 = () => {
+  //   setCount1(count1 + 1);
+  // };
+
+  const increment = useCallback(() => {
+    setCount(count + 1);
+  }, [count]);
+
+  const increment1 = useCallback(() => {
+    setCount1(count1 + 1);
+  }, [count1]);
+
   return (
     <div className="App">
       {/* <HomeScreen />
@@ -57,16 +73,23 @@ function App() {
 
       <Department employee={loggedInEmployee} /> */}
 
-      <CounterContext.Provider value={{ count, setCount }}>
+      {/* <CounterContext.Provider value={{ count, setCount }}>
         <Counter />
       </CounterContext.Provider>
 
       <UserContext.Provider value={loggedInEmployee}>
         <UserProfile />
         <Chat />
-      </UserContext.Provider>
+      </UserContext.Provider> */}
 
-      
+      <div style={{ padding: "20px" }}>
+        <Counter2 text="Counter Component 1" count={count} />
+        <Counter2 text="Counter Component 2" count={count1} />
+
+        <Button onIncrement={increment} />
+
+        <Button onIncrement={increment1} />
+      </div>
     </div>
   );
 }
