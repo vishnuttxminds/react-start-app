@@ -14,6 +14,8 @@ import Department from "./screens/Department";
 import { useState } from "react";
 import Counter from "./screens/Counter";
 import CounterContext from "./context/CounterContext";
+import UserContext from "./context/UserContext";
+import UserProfile from "./screens/UserProfile";
 
 function App() {
   const loggedInEmployee = {
@@ -25,7 +27,7 @@ function App() {
 
   const [count, setCount] = useState(0);
 
-   const increment = () => {
+  const increment = () => {
     setCount(count + 1);
   };
   return (
@@ -54,9 +56,13 @@ function App() {
 
       <Department employee={loggedInEmployee} /> */}
 
-     <CounterContext.Provider value={{count, increment}}>
-      <Counter />
-    </CounterContext.Provider>
+      <CounterContext.Provider value={{ count, increment }}>
+        <Counter />
+      </CounterContext.Provider>
+
+      <UserContext.Provider value={loggedInEmployee}>
+        <UserProfile />
+      </UserContext.Provider>
     </div>
   );
 }
