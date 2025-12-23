@@ -11,14 +11,22 @@ import CurrentTime from "./screens/CurrentTime";
 import CounterUseRef from "./screens/CounterUseRef";
 import ChangeBgColor from "./screens/ChangeBgColor";
 import Department from "./screens/Department";
+import { useState } from "react";
+import Counter from "./screens/Counter";
+import CounterContext from "./context/CounterContext";
 
 function App() {
-
   const loggedInEmployee = {
     id: 101,
     name: "Vishnu",
     role: " Developer",
     department: "IT",
+  };
+
+  const [count, setCount] = useState(0);
+
+   const increment = () => {
+    setCount(count + 1);
   };
   return (
     <div className="App">
@@ -42,9 +50,13 @@ function App() {
       <CurrentTime/> */}
 
       {/* <CounterUseRef/> */}
-      <ChangeBgColor/>
+      {/* <ChangeBgColor/>
 
-      <Department employee={loggedInEmployee} />
+      <Department employee={loggedInEmployee} /> */}
+
+     <CounterContext.Provider value={{count, increment}}>
+      <Counter />
+    </CounterContext.Provider>
     </div>
   );
 }
