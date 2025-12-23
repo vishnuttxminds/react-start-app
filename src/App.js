@@ -16,6 +16,7 @@ import Counter from "./screens/Counter";
 import CounterContext from "./context/CounterContext";
 import UserContext from "./context/UserContext";
 import UserProfile from "./screens/UserProfile";
+import Chat from "./screens/Chat";
 
 function App() {
   const loggedInEmployee = {
@@ -62,7 +63,10 @@ function App() {
 
       <UserContext.Provider value={loggedInEmployee}>
         <UserProfile />
+        <Chat />
       </UserContext.Provider>
+
+      
     </div>
   );
 }
