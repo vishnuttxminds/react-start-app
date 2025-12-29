@@ -1,40 +1,31 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import Product from "./Product";
 
 const productsData = [
   { id: 1, name: "iPhone", price: 80000 },
   { id: 2, name: "Samsung", price: 60000 },
-  { id: 3, name: "Pixel", price: 50000 }
+  { id: 3, name: "Pixel", price: 50000 },
 ];
 
 const ProductListWithCallback = () => {
-  const [search, setSearch] = useState("");
-  const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
 
   const addToCart = useCallback((product) => {
-    setCartCount(prev => prev + 1);
+    setCartItems((prev) => [...prev, product]);
   }, []);
 
-  const filteredProducts = productsData.filter(p =>
-    p.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const totalPrice = useMemo(() => {
+    console.log("Calculating total price...");
+    return cartItems.reduce((total, item) => total + item.price, 0);
+  }, [cartItems]);
 
   return (
     <div>
-      <h2> Cart Items: {cartCount}</h2>
+      <h2>Cart Items: {cartItems.length}</h2>
+      <h3>Total Price: ₹ {totalPrice}</h3>
 
-      <input
-        placeholder="Search product"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-
-      {filteredProducts.map(product => (
-        <Product
-          key={product.id}
-          product={product}
-          addToCart={addToCart}
-        />
+      {productsData.map((product) => (
+        <Product key={product.id} product={product} addToCart={addToCart} />
       ))}
     </div>
   );

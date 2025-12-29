@@ -96,9 +96,9 @@ function App() {
 
       <div style={{ padding: "20px" }}>
          {/* <CountMemo /> */}
-        {/* <ProductListWithCallback /> */}
+        <ProductListWithCallback />
         {/* <ProductListWithoutCallback /> */}
-        <CounterWithMemo />
+        {/* <CounterWithMemo /> */}
       </div>
     </div>
   );
