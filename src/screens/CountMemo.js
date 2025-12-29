@@ -21,7 +21,7 @@ const CountMemo = () => {
         Change Name
       </button>
 
-      <Child name={name} />
+      <Child name="React"/>
     </div>
   );
 };

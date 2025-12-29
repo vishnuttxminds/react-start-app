@@ -20,6 +20,8 @@ import Chat from "./screens/Chat";
 import Button from "./screens/Button";
 import Counter2 from "./screens/Counter2";
 import CountMemo from "./screens/CountMemo";
+import ProductListWithCallback from "./screens/ECom/ProductListWithCallback";
+import ProductListWithoutCallback from "./screens/ECom/ProductListWithoutCallback";
 
 function App() {
   const loggedInEmployee = {
@@ -92,7 +94,9 @@ function App() {
       </div> */}
 
       <div style={{ padding: "20px" }}>
-         <CountMemo />
+         {/* <CountMemo /> */}
+        <ProductListWithCallback />
+        {/* <ProductListWithoutCallback /> */}
       </div>
     </div>
   );
