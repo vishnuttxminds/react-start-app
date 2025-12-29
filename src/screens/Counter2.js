@@ -1,4 +1,5 @@
 // Counter.js
+import React from "react";
 function Counter2({ text, count }) {
     console.log("Counter2 Rendered:", text);
   return (
@@ -9,4 +10,4 @@ function Counter2({ text, count }) {
   );
 }
 
-export default Counter2;
+export default Counter2

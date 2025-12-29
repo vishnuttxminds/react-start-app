@@ -1,4 +1,4 @@
-// Button.js
+import React from "react";
 function Button({ onIncrement }) {
     console.log("Button Rendered:", onIncrement);
   return (
@@ -8,4 +8,4 @@ function Button({ onIncrement }) {
   );
 }
 
-export default Button;
+export default React.memo(Button);
