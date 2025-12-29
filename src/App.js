@@ -19,6 +19,7 @@ import UserProfile from "./screens/UserProfile";
 import Chat from "./screens/Chat";
 import Button from "./screens/Button";
 import Counter2 from "./screens/Counter2";
+import CountMemo from "./screens/CountMemo";
 
 function App() {
   const loggedInEmployee = {
@@ -42,7 +43,6 @@ function App() {
   const increment = useCallback(() => {
     setCount(count + 1);
   }, [count]);
-
   const increment1 = useCallback(() => {
     setCount1(count1 + 1);
   }, [count1]);
@@ -82,13 +82,17 @@ function App() {
         <Chat />
       </UserContext.Provider> */}
 
-      <div style={{ padding: "20px" }}>
+      {/* <div style={{ padding: "20px" }}>
         <Counter2 text="Counter Component 1" count={count} />
         <Counter2 text="Counter Component 2" count={count1} />
 
         <Button onIncrement={increment} />
 
         <Button onIncrement={increment1} />
+      </div> */}
+
+      <div style={{ padding: "20px" }}>
+         <CountMemo />
       </div>
     </div>
   );
