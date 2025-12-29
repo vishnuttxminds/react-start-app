@@ -23,6 +23,7 @@ import ProductListWithCallback from "./screens/ECom/ProductListWithCallback";
 import ProductListWithoutCallback from "./screens/ECom/ProductListWithoutCallback";
 import CounterWithMemo from "./screens/useMemo/CounterWithMemo";
 import Counter from "./screens/Reducer/Counter";
+import Cart from "./screens/eCart/Cart";
 
 
 function App() {
@@ -100,7 +101,8 @@ function App() {
         {/* <ProductListWithCallback /> */}
         {/* <ProductListWithoutCallback /> */}
         {/* <CounterWithMemo /> */}
-        <Counter/>
+        {/* <Counter/> */}
+        <Cart />
       </div>
     </div>
   );
