@@ -22,6 +22,7 @@ import Counter2 from "./screens/Counter2";
 import CountMemo from "./screens/CountMemo";
 import ProductListWithCallback from "./screens/ECom/ProductListWithCallback";
 import ProductListWithoutCallback from "./screens/ECom/ProductListWithoutCallback";
+import CounterWithMemo from "./screens/useMemo/CounterWithMemo";
 
 function App() {
   const loggedInEmployee = {
@@ -95,8 +96,9 @@ function App() {
 
       <div style={{ padding: "20px" }}>
          {/* <CountMemo /> */}
-        <ProductListWithCallback />
+        {/* <ProductListWithCallback /> */}
         {/* <ProductListWithoutCallback /> */}
+        <CounterWithMemo />
       </div>
     </div>
   );
