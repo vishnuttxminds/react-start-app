@@ -12,7 +12,6 @@ import CounterUseRef from "./screens/CounterUseRef";
 import ChangeBgColor from "./screens/ChangeBgColor";
 import Department from "./screens/Department";
 import { useCallback, useState } from "react";
-import Counter from "./screens/Counter";
 import CounterContext from "./context/CounterContext";
 import UserContext from "./context/UserContext";
 import UserProfile from "./screens/UserProfile";
@@ -23,6 +22,8 @@ import CountMemo from "./screens/CountMemo";
 import ProductListWithCallback from "./screens/ECom/ProductListWithCallback";
 import ProductListWithoutCallback from "./screens/ECom/ProductListWithoutCallback";
 import CounterWithMemo from "./screens/useMemo/CounterWithMemo";
+import Counter from "./screens/Reducer/Counter";
+
 
 function App() {
   const loggedInEmployee = {
@@ -96,9 +97,10 @@ function App() {
 
       <div style={{ padding: "20px" }}>
          {/* <CountMemo /> */}
-        <ProductListWithCallback />
+        {/* <ProductListWithCallback /> */}
         {/* <ProductListWithoutCallback /> */}
         {/* <CounterWithMemo /> */}
+        <Counter/>
       </div>
     </div>
   );
