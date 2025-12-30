@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useMemo } from "react";
 import Product from "./Product";
+import { useNavigate } from "react-router-dom";
 
 const productsData = [
   { id: 1, name: "iPhone", price: 80000 },
@@ -9,6 +10,7 @@ const productsData = [
 
 const ProductListWithCallback = () => {
   const [cartItems, setCartItems] = useState([]);
+  const navigate = useNavigate();
 
   const addToCart = useCallback((product) => {
     setCartItems((prev) => [...prev, product]);
@@ -19,6 +21,10 @@ const ProductListWithCallback = () => {
     return cartItems.reduce((total, item) => total + item.price, 0);
   }, [cartItems]);
 
+  const goToCheckout = () => {
+    navigate("/cart");
+  };
+
   return (
     <div>
       <h2>Cart Items: {cartItems.length}</h2>
@@ -27,6 +33,8 @@ const ProductListWithCallback = () => {
       {productsData.map((product) => (
         <Product key={product.id} product={product} addToCart={addToCart} />
       ))}
+
+      <button onClick={goToCheckout}>Go to Checkout</button>
     </div>
   );
 };
