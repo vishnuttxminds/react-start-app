@@ -27,6 +27,7 @@ import Counter from "./screens/Reducer/Counter";
 import Cart from "./screens/eCart/Cart";
 import { Route, Routes } from "react-router-dom";
 import NoMatch from "./screens/NoMatch";
+import ProductDetails from "./screens/ProductDetails";
 
 function App() {
   const loggedInEmployee = {
@@ -116,6 +117,8 @@ function App() {
           path="/ProductListWithout"
           element={<ProductListWithoutCallback />}
         />
+
+        <Route path="/products/:slug" element={<ProductDetails />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </>

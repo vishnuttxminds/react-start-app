@@ -1,6 +1,6 @@
 import React from "react";
 
-const Product = ({ product, addToCart }) => {
+const Product = ({ product, addToCart, onView }) => {
   console.log(" Product rendered:", product.name);
 
   return (
@@ -9,6 +9,10 @@ const Product = ({ product, addToCart }) => {
       <p>₹ {product.price}</p>
       <button onClick={() => addToCart(product)}>
         Add to Cart
+      </button>
+
+       <button onClick={onView} style={{ marginLeft: 10 }}>
+        View Details
       </button>
     </div>
   );
