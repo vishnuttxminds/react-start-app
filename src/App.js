@@ -23,8 +23,10 @@ import ProductListWithCallback from "./screens/ECom/ProductListWithCallback";
 import ProductListWithoutCallback from "./screens/ECom/ProductListWithoutCallback";
 import CounterWithMemo from "./screens/useMemo/CounterWithMemo";
 import Counter from "./screens/Reducer/Counter";
+
 import Cart from "./screens/eCart/Cart";
 import { Route, Routes } from "react-router-dom";
+import NoMatch from "./screens/NoMatch";
 
 function App() {
   const loggedInEmployee = {
@@ -110,7 +112,11 @@ function App() {
       <Routes>
         <Route path="/" element={<ProductListWithCallback />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/ProductListWithout" element={<ProductListWithoutCallback />} />
+        <Route
+          path="/ProductListWithout"
+          element={<ProductListWithoutCallback />}
+        />
+        <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
   );
