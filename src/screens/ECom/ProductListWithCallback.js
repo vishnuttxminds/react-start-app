@@ -39,8 +39,6 @@ const ProductListWithCallback = () => {
         <Product
           key={product.id}
           product={product}
-          addToCart={addToCart}
-          onView={() => goToItem(product.slug)}
         />
       ))}
 
