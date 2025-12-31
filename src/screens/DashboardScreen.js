@@ -1,6 +1,6 @@
 
 import React, { useEffect , useState} from "react";
-import { getUsers } from "../services/userService";
+import { createUser, getUsers } from "../services/userService";
 
 const DashboardScreen = () => {
   const [users, setUsers] = useState([]);
@@ -21,10 +21,26 @@ const DashboardScreen = () => {
       });
   }, []);
 
+
+    const addUser = async () => {
+    try {
+      const custUser = {
+        name: "Vishnu",
+        email: "vishnu@test.com",
+      };
+
+      const response = await createUser(custUser);
+      setUsers((prev) => [...prev, response.data]);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+
   return (
    <div>
       <h2>Dashboard Screen</h2>
-
+  <button onClick={addUser}>Add User</button>
       <ul>
         {users.map((user) => (
           <li key={user.id}>
