@@ -25,9 +25,12 @@ import CounterWithMemo from "./screens/useMemo/CounterWithMemo";
 import Counter from "./screens/Reducer/Counter";
 
 import Cart from "./screens/eCart/Cart";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes, Link, Navigate  } from "react-router-dom";
 import NoMatch from "./screens/NoMatch";
 import ProductDetails from "./screens/ProductDetails";
+import Login from "./screens/Login";
+import AuthProvider from "./auth/AuthContext";
+import ProtectedRoute from "./auth/ProtectedRoute";
 
 function App() {
   const loggedInEmployee = {
@@ -56,71 +59,23 @@ function App() {
   }, [count1]);
 
   return (
-    // <div className="App">
-    //   {/* <HomeScreen />
-    //   <ShowHideScreen userInfo={{ username: "Vishnu", place: "TVM" }} />
-
-    //   <ProductCardScreen title="Nike Bag" image={bag1}>
-    //     <p> Price: 7245</p>
-    //     <p> Rating: 4.5</p>
-    //     <p style={{ color: "green" }}>In Stock</p>
-    //   </ProductCardScreen>
-
-    //   <ProductCardScreen title="Adidas Bag" image={bag2}>
-    //     <p>Price: 17989</p>
-    //     <p>Rating: 4.2</p>
-    //     <p style={{ color: "red" }}>Out of Stock</p>
-    //   </ProductCardScreen> */}
-
-    //   {/* <ProductList /> */}
-    //   {/* <TitleCounter/>
-    //   <CurrentTime/> */}
-
-    //   {/* <CounterUseRef/> */}
-    //   {/* <ChangeBgColor/>
-
-    //   <Department employee={loggedInEmployee} /> */}
-
-    //   {/* <CounterContext.Provider value={{ count, setCount }}>
-    //     <Counter />
-    //   </CounterContext.Provider>
-
-    //   <UserContext.Provider value={loggedInEmployee}>
-    //     <UserProfile />
-    //     <Chat />
-    //   </UserContext.Provider> */}
-
-    //   {/* <div style={{ padding: "20px" }}>
-    //     <Counter2 text="Counter Component 1" count={count} />
-    //     <Counter2 text="Counter Component 2" count={count1} />
-
-    //     <Button onIncrement={increment} />
-
-    //     <Button onIncrement={increment1} />
-    //   </div> */}
-
-    //   <div style={{ padding: "20px" }}>
-    //      {/* <CountMemo /> */}
-    //     {/* <ProductListWithCallback /> */}
-    //     {/* <ProductListWithoutCallback /> */}
-    //     {/* <CounterWithMemo /> */}
-    //     {/* <Counter/> */}
-    //     <Cart />
-    //   </div>
-    // </div>
-
     <>
-      <Routes>
-        <Route path="/" element={<ProductListWithCallback />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route
-          path="/ProductListWithout"
-          element={<ProductListWithoutCallback />}
-        />
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <HomeScreen />
+              </ProtectedRoute>
+            }
+          />
 
-        <Route path="/products/:slug" element={<ProductDetails />} />
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
+          <Route path="*" element={<NoMatch />} />
+        </Routes>
+      </AuthProvider>
     </>
   );
 }
