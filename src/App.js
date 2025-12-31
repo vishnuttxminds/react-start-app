@@ -31,6 +31,7 @@ import ProductDetails from "./screens/ProductDetails";
 import Login from "./screens/Login";
 import AuthProvider from "./auth/AuthContext";
 import ProtectedRoute from "./auth/ProtectedRoute";
+import DashboardScreen from "./screens/DashboardScreen";
 
 function App() {
   const loggedInEmployee = {
@@ -65,10 +66,10 @@ function App() {
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
           <Route
-            path="/home"
+            path="/dashboard"
             element={
               <ProtectedRoute>
-                <HomeScreen />
+                <DashboardScreen />
               </ProtectedRoute>
             }
           />
