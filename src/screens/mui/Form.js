@@ -4,18 +4,28 @@ import {
   Button,
   Box,
   Typography,
-  MenuItem,
   Checkbox,
   FormControlLabel,
+  FormControl,
+  FormLabel,
+  RadioGroup,
+  Radio,
 } from "@mui/material";
+
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+
 import { useNavigate } from "react-router-dom";
 
 const Form = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     gender: "",
+    dob: null,
     agree: false,
   });
 
@@ -27,8 +37,10 @@ const Form = () => {
     });
   };
 
-  const handleSubmit = () => {
-   navigate("/dashboard");
+  const handleSubmit = (e) => {
+    e.preventDefault(); // ✅ IMPORTANT
+    console.log("Form Data:", formData);
+    navigate("/dashboard");
   };
 
   return (
@@ -47,6 +59,7 @@ const Form = () => {
       </Typography>
 
       <form onSubmit={handleSubmit}>
+        {/* Name */}
         <TextField
           fullWidth
           label="Name"
@@ -57,6 +70,7 @@ const Form = () => {
           required
         />
 
+        {/* Email */}
         <TextField
           fullWidth
           label="Email"
@@ -68,21 +82,36 @@ const Form = () => {
           required
         />
 
-        <TextField
-          fullWidth
-          select
-          label="Gender"
-          name="gender"
-          margin="normal"
-          value={formData.gender}
-          onChange={handleChange}
-          required
-        >
-          <MenuItem value="male">Male</MenuItem>
-          <MenuItem value="female">Female</MenuItem>
-          <MenuItem value="other">Other</MenuItem>
-        </TextField>
+        {/* Gender - Radio */}
+        <FormControl margin="normal">
+          <FormLabel>Gender</FormLabel>
+          <RadioGroup
+            row
+            name="gender"
+            value={formData.gender}
+            onChange={handleChange}
+          >
+            <FormControlLabel value="male" control={<Radio />} label="Male" />
+            <FormControlLabel value="female" control={<Radio />} label="Female" />
+            <FormControlLabel value="other" control={<Radio />} label="Other" />
+          </RadioGroup>
+        </FormControl>
 
+        {/* Date Picker */}
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+            label="Date of Birth"
+            value={formData.dob}
+            onChange={(newValue) =>
+              setFormData({ ...formData, dob: newValue })
+            }
+            slotProps={{
+              textField: { fullWidth: true, margin: "normal" },
+            }}
+          />
+        </LocalizationProvider>
+
+        {/* Checkbox */}
         <FormControlLabel
           control={
             <Checkbox
@@ -94,11 +123,13 @@ const Form = () => {
           label="I agree to the terms & conditions"
         />
 
+        {/* Submit */}
         <Button
           fullWidth
           type="submit"
           variant="contained"
           sx={{ mt: 2 }}
+          disabled={!formData.agree}
         >
           Submit
         </Button>
