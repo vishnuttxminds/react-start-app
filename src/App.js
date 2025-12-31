@@ -33,6 +33,7 @@ import AuthProvider from "./auth/AuthContext";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import DashboardScreen from "./screens/DashboardScreen";
 import { MulTypography } from "./compoents/MulTypography";
+import Form from "./screens/mui/Form";
 
 function App() {
   const loggedInEmployee = {
@@ -75,6 +76,7 @@ function App() {
             }
           />
           <Route path="/typography" element={<MulTypography/>} />
+           <Route path="/form" element={<Form/>} />
 
           <Route path="*" element={<NoMatch />} />
         </Routes>
