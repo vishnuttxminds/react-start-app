@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const axiosInstance = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com",
+  baseURL: `${BASE_URL}`,
   timeout: 5000,
   headers: {
     "Content-Type": "application/json",
