@@ -7,8 +7,6 @@ const TabsNav = () => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    console.log("Input Value on Tab Change:", inputValue);
-    setInputValue(inputValue);
   };
 
   return (
