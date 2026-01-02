@@ -36,6 +36,7 @@ import { MulTypography } from "./compoents/MulTypography";
 import Form from "./screens/mui/Form";
 import TabsNav from "./screens/Tab/TabNav";
 import TabsWithComponents from "./screens/Tab/TabsWithComponents";
+import TableWithPagination from "./screens/TablePagination/TableWithPagination";
 
 function App() {
   const loggedInEmployee = {
@@ -44,6 +45,11 @@ function App() {
     role: " Developer",
     department: "IT",
   };
+
+  const data = [
+    { name: "John", age: 25 },
+    { name: "Alice", age: 30 },
+  ];
 
   const [count, setCount] = useState(0);
   const [count1, setCount1] = useState(2);
@@ -65,9 +71,14 @@ function App() {
 
   return (
     <>
-      <AuthProvider>
+      <Routes>
+        <Route path="/table" element={<TableWithPagination rows={data} />} />
+      </Routes>
+
+      {/* <AuthProvider>
         <Routes>
           <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/table" element={<TableWithPagination />} />
           <Route path="/login" element={<Login />} />
           <Route
             path="/tabComponents"
@@ -92,7 +103,7 @@ function App() {
           <Route path="*" element={<NoMatch />} />
           <Route path="/tab" element={<TabsNav />} />
         </Routes>
-      </AuthProvider>
+      </AuthProvider> */}
     </>
   );
 }

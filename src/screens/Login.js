@@ -8,7 +8,7 @@ const Login = () => {
 
   const handleLogin = () => {
     login();             
-    navigate("/tabComponents"); 
+    navigate("/table"); 
   };
 
   return (
