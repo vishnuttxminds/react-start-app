@@ -7,22 +7,27 @@ import TabPanel from "./TabPanel";
 
 const TabsWithComponents = () => {
   const [value, setValue] = useState(0);
-  const [name, setName] = useState("");
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const [profile, setProfile] = useState({
+    name: "",
+    age: "",
+    gender: "",
+  });
 
   return (
     <Box sx={{ width: "100%", mt: 4 }}>
-      <Tabs value={value} onChange={handleChange} centered>
+      <Tabs
+        value={value}
+        onChange={(e, newValue) => setValue(newValue)}
+        centered
+      >
         <Tab label="Profile" />
         <Tab label="Orders" />
         <Tab label="Settings" />
       </Tabs>
 
       <TabPanel value={value} index={0}>
-        <ProfileTab name={name} setName={setName} />
+        <ProfileTab profile={profile} setProfile={setProfile} />
       </TabPanel>
 
       <TabPanel value={value} index={1}>
@@ -30,7 +35,7 @@ const TabsWithComponents = () => {
       </TabPanel>
 
       <TabPanel value={value} index={2}>
-        <SettingsTab name={name} />
+        <SettingsTab profile={profile} />
       </TabPanel>
     </Box>
   );

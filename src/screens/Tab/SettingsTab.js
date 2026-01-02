@@ -1,11 +1,12 @@
-import React from "react";
 import { Typography } from "@mui/material";
 
-const SettingsTab = ({ name }) => {
+const SettingsTab = ({ profile }) => {
   return (
     <>
-      <Typography variant="h6">Settings Content</Typography>
-      <Typography>Name from Profile: {name}</Typography>
+      <Typography variant="h6">Settings</Typography>
+      <Typography>Name: {profile.name}</Typography>
+      <Typography>Age: {profile.age}</Typography>
+      <Typography>Gender: {profile.gender}</Typography>
     </>
   );
 };
