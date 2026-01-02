@@ -1,42 +1,35 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Typography,
-} from "@mui/material";
+import { Button, Typography, Box } from "@mui/material";
+import CustomDialog from "./CustomDialog";
 
 const DialogExample = () => {
   const [open, setOpen] = useState(false);
+  const [submittedData, setSubmittedData] = useState(null);
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleSubmit = (data) => {
+    setSubmittedData(data);
+  };
 
   return (
-    <div>
-      <Button variant="contained" onClick={handleOpen}>
+    <Box sx={{ p: 3 }}>
+      <Button variant="contained" onClick={() => setOpen(true)}>
         Open Dialog
       </Button>
 
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Confirm Action</DialogTitle>
+      <CustomDialog
+        open={open}
+        onClose={() => setOpen(false)}
+        onSubmit={handleSubmit}
+      />
 
-        <DialogContent>
-          <Typography>
-            Are you sure you want to continue?
-          </Typography>
-        </DialogContent>
-
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button variant="contained" onClick={handleClose}>
-            Confirm
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+      {submittedData && (
+        <Box sx={{ mt: 3 }}>
+          <Typography variant="h6">Submitted Data</Typography>
+          <Typography>Name: {submittedData.name}</Typography>
+          <Typography>Email: {submittedData.email}</Typography>
+        </Box>
+      )}
+    </Box>
   );
 };
 
