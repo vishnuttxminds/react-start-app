@@ -38,7 +38,7 @@ const Form = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // ✅ IMPORTANT
+    e.preventDefault(); 
     console.log("Form Data:", formData);
     navigate("/dashboard");
   };
