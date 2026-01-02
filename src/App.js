@@ -25,7 +25,7 @@ import CounterWithMemo from "./screens/useMemo/CounterWithMemo";
 import Counter from "./screens/Reducer/Counter";
 
 import Cart from "./screens/eCart/Cart";
-import { Route, Routes, Link, Navigate  } from "react-router-dom";
+import { Route, Routes, Link, Navigate } from "react-router-dom";
 import NoMatch from "./screens/NoMatch";
 import ProductDetails from "./screens/ProductDetails";
 import Login from "./screens/Login";
@@ -35,6 +35,7 @@ import DashboardScreen from "./screens/DashboardScreen";
 import { MulTypography } from "./compoents/MulTypography";
 import Form from "./screens/mui/Form";
 import TabsNav from "./screens/Tab/TabNav";
+import TabsWithComponents from "./screens/Tab/TabsWithComponents";
 
 function App() {
   const loggedInEmployee = {
@@ -69,15 +70,15 @@ function App() {
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="/login" element={<Login />} />
           <Route
-            path="/tab"
+            path="/tabComponents"
             element={
               <ProtectedRoute>
-                <TabsNav />
+                <TabsWithComponents />
               </ProtectedRoute>
             }
           />
 
-           <Route
+          <Route
             path="/dashboard"
             element={
               <ProtectedRoute>
@@ -85,10 +86,11 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/typography" element={<MulTypography/>} />
-           <Route path="/form" element={<Form/>} />
+          <Route path="/typography" element={<MulTypography />} />
+          <Route path="/form" element={<Form />} />
 
           <Route path="*" element={<NoMatch />} />
+          <Route path="/tab" element={<TabsNav />} />
         </Routes>
       </AuthProvider>
     </>
