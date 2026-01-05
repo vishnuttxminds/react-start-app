@@ -38,6 +38,7 @@ import TabsNav from "./screens/Tab/TabNav";
 import TabsWithComponents from "./screens/Tab/TabsWithComponents";
 import TableWithPagination from "./screens/TablePagination/TableWithPagination";
 import DialogExample from "./screens/dialoge/DialogExample";
+import CustomHooks from "./screens/CustomHooks";
 
 function App() {
   const loggedInEmployee = {
@@ -74,7 +75,8 @@ function App() {
     <>
       <Routes>
         {/* <Route path="/table" element={<TableWithPagination rows={data} />} /> */}
-        <Route path="/dialog" element={<DialogExample />} />
+        {/* <Route path="/dialog" element={<DialogExample />} /> */}
+        <Route path="/hooks" element={<CustomHooks />} />
       </Routes>
 
       {/* <AuthProvider>
